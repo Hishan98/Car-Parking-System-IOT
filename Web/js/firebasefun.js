@@ -1,15 +1,16 @@
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
-  
-        window.location.href = "Home.html";
+      if(user != null){
+        window.location.href = "Home.html";  
+      }
   
     } else {
       // No user is signed in.
   
     }
   });
-  
+
   function login(){
   
     var userEmail = document.getElementById("txtEmail").value;
@@ -25,22 +26,5 @@ firebase.auth().onAuthStateChanged(function(user) {
       // ...
     });
   
-  }
-  
-  function logout(){
-    firebase.auth().signOut();
-  }
-
-  //Div color changin function
-  function colorChange(){
-    //1 = car parked (red)
-    //0 = car not parked (red)
-
-    if(bla=1){
-      document.getElementById("myDIV").style.backgroundColor = "lightblue";
-    }
-    else{
-      document.getElementById("myDIV").style.backgroundColor = "lightblue";
-    }
   }
   
