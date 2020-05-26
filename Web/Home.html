@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <title>Home</title>
+	    <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+        <style type="text/css">
+            body{
+                background-image: url(images/ggwp.jpg);
+            }
+            #container{
+                position: relative;
+                width: 201px;
+                height: 200px;
+                background-color: blue;
+                margin: 0 auto;
+                
+            }
+            #title{
+                text-align: center;
+                color: seashell;
+                font-size: 50px;
+            }
+            .slots{
+                position: relative;
+                width: 49%;
+                height: 100%;
+                color: white;
+                background-color: #32CD32;
+                float: left;
+                border: 1px solid black;
+            }
+            #txt{
+                position: relative;
+                text-align: center;
+                top: 45%;
+                transform: translateY(-50%);
+            }
+            #img_size{
+                position: relative;
+                text-align: center;
+                padding-top: 25%;
+                width: 130%;
+                height: auto;
+                -ms-transform: rotate(90deg); /* IE 9 */
+                transform: rotate(90deg);
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1 id="title">Avalible Slots</h1>
+        <div id="container">
+
+            <div class="slots" id="slot01">
+                <p id="txt">
+                    Slot 01
+                    <img src="images/car top_white.png" id="img_size">
+                </p>
+            </div>
+
+            <div class="slots" id="slot02">
+                <p id="txt">
+                    Slot 02
+                    <img src="images/car top.png" id="img_size"></p>
+            </div>
+        </div>
+        
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+        <script src = "https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyB4XyHZpoY3tc7IvJf08DbMyzEBAH_RB-s",
+                authDomain: "carpark-93115.firebaseapp.com",
+                databaseURL: "https://carpark-93115.firebaseio.com",
+                projectId: "carpark-93115",
+                storageBucket: "carpark-93115.appspot.com",
+                messagingSenderId: "225786874433",
+                appId: "1:225786874433:web:cf335df330d290a97d94c0",
+                measurementId: "G-X5CJ65EQKG"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+
+            //Parking Slot 01
+            const dbRef = firebase.database().ref().child('slot01');
+            dbRef.on('value', snap => {
+                var avalible = JSON.stringify(snap.val());
+
+                if (avalible == 1) {
+                    document.getElementById("slot01").style.backgroundColor = "#32CD32"; //Green
+                } else {
+                    document.getElementById("slot01").style.backgroundColor = "#FF6347"; //Red
+                }
+
+            });
+
+            //Parking Slot 02
+            const dbRef2 = firebase.database().ref().child('slot02');
+            dbRef2.on('value', snap => {
+                var avalible = JSON.stringify(snap.val());
+
+                if (avalible == 1) {
+                    document.getElementById("slot02").style.backgroundColor = "#32CD32"; //Green
+                } else {
+                    document.getElementById("slot02").style.backgroundColor = "#FF6347"; //Red
+                }
+
+            });
+
+        </script>
+        
+        <script src="js/firebasefun.js"></script>
+    </body>
+</html>

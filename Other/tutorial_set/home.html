@@ -1,0 +1,41 @@
+<html>
+    <head>
+    </head>
+    <body>
+       
+        <div class="main_div">
+            <h1 id="ggwp"> Firebase Base web App</h1>
+            <textarea id="maintext" placeholder="Enter your Message..."></textarea>
+            <button id="submitBtn" onclick="submitfrom()">Enter</button>
+        </div>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyCNwLkVZh0_PYxUKGszbXRWsnMTiqA3A-Q",
+                authDomain: "carpark-38275.firebaseapp.com",
+                databaseURL: "https://carpark-38275.firebaseio.com",
+                projectId: "carpark-38275",
+                storageBucket: "carpark-38275.appspot.com",
+                messagingSenderId: "208390235046",
+                appId: "1:208390235046:web:88e1f7809fb311a3bfe567",
+                measurementId: "G-ZP6C1C23ZJ"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();    
+            
+            var bigOne =document.getElementById('ggwp');
+            var dbRef = firebase.database().ref().child('text');
+            dbRef.on('value', snap => bigOne.innerText = snap.val());
+        </script>
+        
+        <script src="main.js"></script>
+    </body>
+</html>
