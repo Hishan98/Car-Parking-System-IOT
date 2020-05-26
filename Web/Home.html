@@ -1,38 +1,106 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Home</title>
-	    <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
-        <style type="text/css">
-            body{
-                background-image: url(images/ggwp.jpg);
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
             }
-            #container{
+
+            * {
+            box-sizing: border-box;
+            }
+
+            .bg-image {
+            /* The image used */
+            background-image: url("images/ee.jpg");
+            
+            /* Add the blur effect */
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+            
+            /* Full height */
+            height: 100%; 
+            
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+
+            /* Position text in the middle of the page/image */
+            .bg-text {
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+            color: white;
+            font-weight: bold;
+            border: 3px solid #f1f1f1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 80%;
+            padding: 20px;
+            text-align: center;
+            }
+            #base-container{
                 position: relative;
-                width: 201px;
-                height: 200px;
-                background-color: blue;
-                margin: 0 auto;
+                width: 100%;
+                height: 100%;
+                padding-top: 20px;
+            }
+            #left-container{
+                position: relative;
+                float: left;
+                width: 35%;
+                height: 100%;
+                padding-left: 150px;
                 
+            }
+            #right-container{
+                position: relative;
+                float: left;
+                width: 65%;
+                height: 100%;
+                padding-left: 90px;
+                
+            }
+            #titlebar{
+                background-color: black;
+                opacity: 0.5;
             }
             #title{
                 text-align: center;
                 color: seashell;
-                font-size: 50px;
+                font-size: 50vw;
             }
             .slots{
                 position: relative;
-                width: 49%;
+                width: 40%;
                 height: 100%;
                 color: white;
                 background-color: #32CD32;
-                float: left;
                 border: 1px solid black;
+            }
+            #slot01{
+                float: left;
+            }
+            #slot02{
+                float: left;
             }
             #txt{
                 position: relative;
                 text-align: center;
-                top: 45%;
-                transform: translateY(-50%);
+                padding-top: 10%;
+                font-size: 1.5vw;
+
             }
             #img_size{
                 position: relative;
@@ -43,13 +111,62 @@
                 -ms-transform: rotate(90deg); /* IE 9 */
                 transform: rotate(90deg);
             }
+            
+            #btnlogout{
+                float: right;
+            }
+            #row-01{
+                height: 100%;
+                width: 100%;
+            }
+            #row-02{
+                height: 100%;
+                width: 100%;
+            }
+            .div-info{
+                width: 15%;
+                height: 15%;
+                float: left;
 
-        </style>
-    </head>
-    <body>
-        <h1 id="title">Avalible Slots</h1>
-        <div id="container">
+            }
+            .div-info-color{
+                width: 50%;
+                height: 100%;
+                font-size: 1vw;
+                text-align: left;
 
+            }
+            #des{
+                padding-left: 25%;
+            }
+    </style>
+</head>
+<body>
+
+<div class="bg-image"></div>
+<div class="bg-text">
+    <!-- <button type="button" class="btn btn-primary btn-lg" id="btnlogout">Logout</button> -->
+    <h2 style="font-size:3vw;">Parking Spaces</h2>
+    <div id="base-container">
+        
+        <div id="left-container">
+            <div id="row-01">
+
+                <div class="div-info-color">
+                    <img src="images/green_square.png" class="div-info">  
+                    <p id="des">Available</p>
+                </div>
+            </div>
+            <div id="row-02">
+
+                <div class="div-info-color">
+                    <img src="images/red_square.png" class="div-info"> 
+                    <p id="des">Not Available</p>
+                </div>
+
+            </div>
+        </div>
+        <div id="right-container">
             <div class="slots" id="slot01">
                 <p id="txt">
                     Slot 01
@@ -60,61 +177,69 @@
             <div class="slots" id="slot02">
                 <p id="txt">
                     Slot 02
-                    <img src="images/car top.png" id="img_size"></p>
-            </div>
+                    <img src="images/car top.png" id="img_size">
+                </p>
+            </div>    
         </div>
-        
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
-        <script src = "https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-            https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+    </div>
+</div>
 
-        <script>
-            // Your web app's Firebase configuration
-            var firebaseConfig = {
-                apiKey: "AIzaSyB4XyHZpoY3tc7IvJf08DbMyzEBAH_RB-s",
-                authDomain: "carpark-93115.firebaseapp.com",
-                databaseURL: "https://carpark-93115.firebaseio.com",
-                projectId: "carpark-93115",
-                storageBucket: "carpark-93115.appspot.com",
-                messagingSenderId: "225786874433",
-                appId: "1:225786874433:web:cf335df330d290a97d94c0",
-                measurementId: "G-X5CJ65EQKG"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-            firebase.analytics();
+<!-- bootstrap -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-            //Parking Slot 01
-            const dbRef = firebase.database().ref().child('slot01');
-            dbRef.on('value', snap => {
-                var avalible = JSON.stringify(snap.val());
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+<script src = "https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
 
-                if (avalible == 1) {
-                    document.getElementById("slot01").style.backgroundColor = "#32CD32"; //Green
-                } else {
-                    document.getElementById("slot01").style.backgroundColor = "#FF6347"; //Red
-                }
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyB4XyHZpoY3tc7IvJf08DbMyzEBAH_RB-s",
+        authDomain: "carpark-93115.firebaseapp.com",
+        databaseURL: "https://carpark-93115.firebaseio.com",
+        projectId: "carpark-93115",
+        storageBucket: "carpark-93115.appspot.com",
+        messagingSenderId: "225786874433",
+        appId: "1:225786874433:web:cf335df330d290a97d94c0",
+        measurementId: "G-X5CJ65EQKG"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
 
-            });
+    //Parking Slot 01
+    const dbRef = firebase.database().ref().child('slot01');
+    dbRef.on('value', snap => {
+        var avalible = JSON.stringify(snap.val());
 
-            //Parking Slot 02
-            const dbRef2 = firebase.database().ref().child('slot02');
-            dbRef2.on('value', snap => {
-                var avalible = JSON.stringify(snap.val());
+        if (avalible == 0) {
+            document.getElementById("slot01").style.backgroundColor = "#32CD32"; //Green
+        } else {
+            document.getElementById("slot01").style.backgroundColor = "#FF6347"; //Red
+        }
 
-                if (avalible == 1) {
-                    document.getElementById("slot02").style.backgroundColor = "#32CD32"; //Green
-                } else {
-                    document.getElementById("slot02").style.backgroundColor = "#FF6347"; //Red
-                }
+    });
 
-            });
+    //Parking Slot 02
+    const dbRef2 = firebase.database().ref().child('slot02');
+    dbRef2.on('value', snap => {
+        var avalible = JSON.stringify(snap.val());
 
-        </script>
-        
-        <script src="js/firebasefun.js"></script>
-    </body>
+        if (avalible == 0) {
+            document.getElementById("slot02").style.backgroundColor = "#32CD32"; //Green
+        } else {
+            document.getElementById("slot02").style.backgroundColor = "#FF6347"; //Red
+        }
+
+    });
+
+</script>
+
+<script src="js/firebasefun.js"></script>
+</body>
 </html>
