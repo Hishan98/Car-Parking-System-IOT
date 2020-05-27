@@ -16,36 +16,104 @@
     <div id="base-container">
         
         <div id="left-container">
-            <div id="row-01">
+            <div id="row">
 
                 <div class="div-info-color">
                     <img src="images/green_square.png" class="div-info">  
-                    <p id="des">Available</p>
+                    <p id="des">Available (Customers)</p>
                 </div>
             </div>
-            <div id="row-02">
+            <div id="row">
+
+                <div class="div-info-color">
+                    <img src="images/yellow_square.png" class="div-info">  
+                    <p id="des">Available (Managers)</p>
+                </div>
+            </div>
+            <div id="row">
 
                 <div class="div-info-color">
                     <img src="images/red_square.png" class="div-info"> 
-                    <p id="des">Not Available</p>
+                    <p id="des">Unavailable</p>
                 </div>
 
             </div>
         </div>
         <div id="right-container">
-            <div class="slots" id="slot01">
-                <p id="txt">
-                    Slot 01
-                    <img src="images/car top_white.png" class="img_size" id="slot01-img">
-                </p>
+
+            <div id="right-container-upper">
+                <div class="managerslots" id="slot01">
+                    <p id="txt">
+                        Slot 01
+                        <img src="images/car top.png" class="img_size_upper" id="slot01-img">
+                    </p>
+                </div>
+
+                <div class="slots" id="slot02">
+                    <p id="txt">
+                        Slot 02
+                        <img src="images/car top.png" class="img_size_upper" id="slot02-img">
+                    </p>
+                </div>
+
+                <div class="slots" id="slot03">
+                    <p id="txt">
+                        Slot 03
+                        <img src="images/car top.png" class="img_size_upper" id="slot03-img">
+                    </p>
+                </div>
+
+                <div class="slots" id="slot04">
+                    <p id="txt">
+                        Slot 04
+                        <img src="images/car top.png" class="img_size_upper" id="slot04-img">
+                    </p>
+                </div>
+
+                <div class="managerslots" id="slot05">
+                    <p id="txt">
+                        Slot 05
+                        <img src="images/car top.png" class="img_size_upper" id="slot05-img">
+                    </p>
+                </div>
             </div>
 
-            <div class="slots" id="slot02">
-                <p id="txt">
-                    Slot 02
-                    <img src="images/car top.png" class="img_size" id="slot02-img">
-                </p>
-            </div>    
+            <div id="right-container-lower">
+                <div class="managerslots" id="slot06">
+                    <p id="txt">
+                        Slot 06
+                        <img src="images/car top.png" class="img_size_lower" id="slot06-img">
+                    </p>
+                </div>
+
+                <div class="slots" id="slot07">
+                    <p id="txt">
+                        Slot 07
+                        <img src="images/car top.png" class="img_size_lower" id="slot07-img">
+                    </p>
+                </div>
+
+                <div class="slots" id="slot08">
+                    <p id="txt">
+                        Slot 08
+                        <img src="images/car top.png" class="img_size_lower" id="slot08-img">
+                    </p>
+                </div>
+
+                <div class="slots" id="slot09">
+                    <p id="txt">
+                        Slot 09
+                        <img src="images/car top.png" class="img_size_lower" id="slot09-img">
+                    </p>
+                </div>
+
+                <div class="slots" id="slot10">
+                    <p id="txt">
+                        Slot 10
+                        <img src="images/pngwing.png" class="img_size_disable" id="slot10-img">
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -86,7 +154,7 @@
         var avalible = JSON.stringify(snap.val());
 
         if (avalible == 0) {
-            document.getElementById("slot01").style.backgroundColor = "#32CD32"; //Green
+            document.getElementById("slot01").style.backgroundColor = "#F6E71D"; //Green
             document.getElementById("slot01-img").src = "images/car top.png";
 
         } else {
