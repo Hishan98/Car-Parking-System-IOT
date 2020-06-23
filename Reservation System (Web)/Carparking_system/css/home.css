@@ -1,0 +1,45 @@
+body{
+    background-image: url("../images/bg03.jpg");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#first {
+    position : absolute;
+    width : 420px;
+    top : 50%;
+    left : 50%;
+    transform : translate(-50%,-50%);
+    background : #2F3640;
+    height : 60px;
+    border-radius : 40px;
+    padding : 10px;
+}
+.search-txt{
+    border:none;
+    background:none;
+    outline:none;
+    float:left;
+    color: #fff;
+    transition : 0.4s;
+    line-height: 40px;
+    width: 300px;
+    padding: 10px 6px;
+    text-align: center;
+    font-family: 'Roboto Condensed';font-size: 23px;
+}
+
+.search-btn{
+    float : right;
+    width : 120px;
+    height : 60px;
+    border: 0px;
+    border-radius: 40px;
+    background : #267DFF;
+    color: white;
+    font-family: 'Roboto Condensed';font-size: 20px;
+}
+

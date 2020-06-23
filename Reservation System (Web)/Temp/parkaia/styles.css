@@ -1,0 +1,97 @@
+h1 {
+	color:black;
+	font-family:Calibri;
+	font-size:100px;
+}
+p {
+	color:black;
+	font-family:Calibri;
+	font-size:30px;
+}
+h3 {
+	color:black;
+	font-family:Calibri;
+	font-size:60px;
+}
+h4 {
+	color:black;
+	font-family:Calibri;
+	font-size:40px;
+}
+.page {
+	width: 1000px;
+	padding: 1% 0 0;
+	margin: auto;
+}
+.login-page {
+	width: 800px;
+	padding: 2% 0 0;
+	margin: auto;
+}
+.form {
+	position: relative;
+	z-index: 1;
+	background: #FFFFFF;
+	max-width: 1000px;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: left;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+	font-family: "Roboto", sans-serif;
+	outline: 0;
+	background: #f2f2f2;
+	width: 100%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 21px;
+}
+.form button {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	outline: 0;
+	background: #9ee5ad;
+	width: 100%;
+	border: 0;
+	padding: 21px;
+	color: #FFFFFF;
+	font-size: 14px;
+	cursor: pointer;
+}
+.form button:disabled {
+  background: #dddddd;
+}
+.form button:hover,.form button:active,.form button:focus {
+	background: #95eda7;
+}
+.message {
+	color:black;
+	font-family:Calibri;
+	font-size:24px;
+}
+.account {
+	position: absolute;
+	right: 20px;
+	color:black;
+	font-family:Calibri;
+	font-size:30px;
+}
+body, html {
+	height: 100%;
+	background-color:e2e2e2;
+}
+.bg {
+	/* ape image eka */
+	background-image: url("img/login_bg.jpg");
+
+	/* Full height */
+	height: 100%;
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
