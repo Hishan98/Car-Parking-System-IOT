@@ -11,16 +11,24 @@ if(isset($_POST['email'])){
     $sql="select * from users where username='".$uname."'AND password='".$password."' limit 1";
     
     $result=mysqli_query($con,$sql);
-    
-    if(mysqli_num_rows($result)==1){
-         header("Location: ../Home.php"); 
-         exit();
+    $row = $result->fetch_assoc();
+
+    $_SESSION["type"] = $row["type"];
+    $_SESSION["emp_id"] = $row["emp_id"];
+
+    if(mysqli_num_rows($result)==1){     
+          if($_SESSION["type"]=="admin"){
+               header("Location: ../admin/adminpanel.php");
+          }
+          else{
+               header("Location: ../in_system/Home.php");
+          }
     }
     else{
          $_SESSION["error"] = $error;
          header("Location: ../index.php"); 
-         exit();
     }
+    $con->close();
         
 }
 ?>
