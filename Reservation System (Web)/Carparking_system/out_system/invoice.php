@@ -2,8 +2,6 @@
     <head>
         <title>invoice</title>
         <link rel="icon" type="image/png" href="../images/icons/favicon.png"/>
-        <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
-        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">        <link rel="stylesheet" type="text/css" href="../css/invoice.css">
     </head>
     <body>
@@ -17,15 +15,7 @@
                 <p class="invo_lbl">Check-In Time:</p>  
                 <p class="invo_lbl">Check-Out Time:</p>  
            </div> 
-           <div id="right-container">
-
-               <!-- <p id="invoice_number" class="invo_val">333324</p>
-               <p id="invoice_number" class="invo_val">01</p>
-               <p id="invoice_number" class="invo_val">CAW2224</p>
-               <p id="invoice_number" class="invo_val">2020-10-12</p>
-               <p id="invoice_number" class="invo_val">17:00:00</p>
-               <p id="invoice_number" class="invo_val">22:00:00</p> -->
-               
+           <div id="right-container">        
                 <?php 
 
 					include '../DBconnections/invoice_data.php';
@@ -39,8 +29,13 @@
 
            </div>
         </div>
-        <p id="cost">'.$cost.'</p>
+        <p id="cost">RS '.$cost.'.00</p>
         ';
         ?>
     </body>
+    <!-- <script>
+        var timer = setTimeout(function() {
+            window.location='Out_Home.php';
+        }, 5000);
+    </script> -->
 </html>

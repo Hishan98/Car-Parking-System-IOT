@@ -24,10 +24,27 @@ if(isset($_POST['txt-slots-value'])){
      } else {
           echo "<script type='text/javascript'>alert('Sorry, cannot place your booking...');</script>";
           echo "Error: " . $sql . "<br>" . $con->error;
-
-          // $_SESSION['error']='Sorry, cannot place your booking...';
-          // header('Location: ../in_system/Home.php');
      }
+
+     //Get invoice number from report table
+    $sql="select * from report where vehicle_num='".$vnumber."' AND cost IS NULL limit 1";
+    $result=mysqli_query($con,$sql);
+    $row = $result->fetch_assoc();
+    $invoice_num = $row["invoice_num"];
+    
+    if ($result->num_rows > 0) {
+          //update slots table
+          $sql="UPDATE slots SET invoice_num ='".$invoice_num."',status ='1' WHERE slot_num = '".$slotid."' AND invoice_num IS NULL";
+
+          if ($con->query($sql) === FALSE) {
+               echo "<script type='text/javascript'>alert('Sorry, update error...');</script>";
+               echo "Error: " . $sql . "<br>" . $con->error;
+          } 
+    }
+    else{
+          echo "<script type='text/javascript'>alert('Sorry, cannot get values from the database...');</script>";
+          echo "Error: " . $sql . "<br>" . $con->error;
+    }
 
     $con->close();
         

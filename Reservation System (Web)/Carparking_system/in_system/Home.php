@@ -17,13 +17,17 @@ if (!isset($_SESSION['type'])) {
         <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
     </head>
     <body>
-        <div class="bg-image"></div>
-        <form action="#" method="POST">
-            <div id="first">
-                <input class="search-txt" type="text" placeholder="Enter Vehicle Number..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Vehicle Number...'" name="vnumber" />
-                <button class="search-btn" type="submit" value="Submit">Next</button>
+        <div id="base-container">
+            <div id="down-container"> 
+            <h1 id="headding">Check IN</h1>
+                <form action="#" method="POST">
+                    <div id="first">
+                        <input class="search-txt" type="text" placeholder="Enter Vehicle Number..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Vehicle Number...'" name="vnumber" />
+                        <button class="search-btn" type="submit" value="Submit">Next</button>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </body>
     <?php
          if(isset($_POST['vnumber'])){

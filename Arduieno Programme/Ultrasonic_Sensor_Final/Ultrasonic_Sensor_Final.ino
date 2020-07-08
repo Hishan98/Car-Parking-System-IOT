@@ -1,8 +1,11 @@
 #include <ESP8266WiFi.h>
 #include <FirebaseArduino.h>
 
-#define WIFI_SSID "SLT_FIRE" // WiFi Name
-#define WIFI_PASSWORD "dhk@1998" // WiFi Password
+//#define WIFI_SSID "SLT_FIRE" // WiFi Name
+//#define WIFI_PASSWORD "dhk@1998" // WiFi Password
+
+#define WIFI_SSID "KK" // WiFi Name
+#define WIFI_PASSWORD "123456789" // WiFi Password
 
 #define FIREBASE_HOST "carpark-93115.firebaseio.com" // RealTime Database URL
 #define FIREBASE_AUTH "LZ89RActVNwpgsYMtTQAmbNzMGMkZ51RteHUb3P5" // Realtime Database Secret
@@ -18,7 +21,7 @@ const int echoPinSe = 0;  // D1 - NodeMCU pin
 // defines variables
 long duration;
 int distance;
-int available_range = 10; // Maximum distance between sensor and the object to change available state to unavailable 
+int available_range = 60; // Maximum distance between sensor and the object to change available state to unavailable 
 
 void setup() {
   Serial.begin(9600);

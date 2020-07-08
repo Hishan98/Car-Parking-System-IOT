@@ -2,11 +2,11 @@
 session_start();
 
 include('dbconfig.php');
-if(isset($_POST['email'])){
+if(isset($_POST['username'])){
     
-    $uname=$_POST['email'];
+    $uname=$_POST['username'];
     $password=$_POST['pass'];
-    $error="You Have Entered Incorrect Usernae or Password";
+    $error="You Have Entered Incorrect Username or Password";
     
     $sql="select * from users where username='".$uname."'AND password='".$password."' limit 1";
     

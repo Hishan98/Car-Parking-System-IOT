@@ -38,11 +38,11 @@
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 				<form class="login100-form validate-form" action="DBconnections/login.php" method="POST">
 					<span class="login100-form-title p-b-33">
-						Account Login
+						Carpark Login
 					</span>
 
 					<div class="wrap-input100" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email">
+						<input class="input100" type="text" name="username" placeholder="Username">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
@@ -60,18 +60,11 @@
 					</div>
 
 					<div class="text-center p-t-45 p-b-4">
-						<!-- <span class="txt1">
-							Forgot
-						</span>
-
-						<a href="#" class="txt2 hov1">
-							Username / Password?
-						</a> -->
 						<?php
 							if(isset($_SESSION["error"])){
 								$error = $_SESSION["error"];
 								echo "
-									<span class='txt1'>
+									<span class='txt3'>
 										$error
 									</span>
 								";

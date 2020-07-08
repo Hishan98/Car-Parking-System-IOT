@@ -23,7 +23,11 @@
 
 body, html {
 	height: 100%;
-	font-family: OpenSans-Regular, sans-serif;
+  font-family: OpenSans-Regular, sans-serif;
+  background-image: url("../images/bg07.jpg");
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /*---------------------------------------------*/
@@ -121,6 +125,12 @@ iframe {
   line-height: 1.4;
   color: #4272d7;
 }
+.txt3 {
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  line-height: 1.0;
+  color: #F7505A;
+}
 
 .hov1:hover {
   text-decoration: underline;
@@ -147,7 +157,6 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #e9faff;
 }
 
 .wrap-login100 {
@@ -232,7 +241,7 @@ input.input100 {
   position: absolute;
   width: 0;
   height: 1px;
-  background-color: #4272d7;
+  background-color: #3272d7;
 }
 
 .focus-input100-1::before {

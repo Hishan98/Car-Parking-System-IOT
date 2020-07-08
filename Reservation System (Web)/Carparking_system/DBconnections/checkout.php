@@ -15,20 +15,21 @@ if(isset($_POST['out_vnumber'])){
     $result=mysqli_query($con,$sql);
     $row = $result->fetch_assoc();
     $in_time = $row["in_time"];
-    if(mysqli_num_rows($result)==1){
+    if($result->num_rows > 0){
         $status="Employee";
     }
     else{
         $status="Customer";
     }
+   
 
     //Get in time from database
     $sql="select * from report where vehicle_num='".$vnumber."' AND cost IS NULL limit 1";
     $result=mysqli_query($con,$sql);
     $row = $result->fetch_assoc();
     $in_time = $row["in_time"];
-
-    $_SESSION["invoice_num"]= $row["invoice_num"];
+    $slotid=$row["slot_id"];
+    $_SESSION["invoice_num"]=$row["invoice_num"];
 
     //calculate Cost
     $out_time_var = new DateTime($out_time);
@@ -37,7 +38,7 @@ if(isset($_POST['out_vnumber'])){
     $diffrance = $calculate->format("%H");
 
     //check & set prices to customers and employees
-    if($status="Employee"){
+    if($status=="Employee"){
         $cost=$diffrance*$chargers_perhour*0;
     }
     else{
@@ -50,8 +51,17 @@ if(isset($_POST['out_vnumber'])){
         $sql="UPDATE report SET out_time ='".$out_time."',cost ='".$cost."' WHERE vehicle_num = '".$vnumber."' AND cost IS NULL";
 
         if ($con->query($sql) === TRUE) {
-            // echo "<script type='text/javascript'>alert('updated successfully');</script>";
-            header("Location: ../out_system/invoice.php");
+            //update slots table
+            $sql="UPDATE slots SET invoice_num = NULL ,status = NULL WHERE slot_num = '".$slotid."'";
+
+            if ($con->query($sql) === FALSE) {
+                echo "<script type='text/javascript'>alert('Sorry, update error...');</script>";
+                echo "Error: " . $sql . "<br>" . $con->error;
+            } 
+            else{
+                header("Location: ../out_system/invoice.php");
+            }
+
         } else {
             echo "<script type='text/javascript'>alert('Sorry, update error...');</script>";
             echo "Error: " . $sql . "<br>" . $con->error;

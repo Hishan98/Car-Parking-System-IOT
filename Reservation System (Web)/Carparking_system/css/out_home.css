@@ -2,6 +2,7 @@ body{
     background-image: url("../images/bg02.jpg");
     /* Center and scale the image nicely */
     background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'Roboto Condensed';font-size: 23px;
     color: white;
 }
@@ -18,7 +19,7 @@ body{
 }
 #headding{
     text-align: center;
-    padding-top: 10vw;
+    padding-top: 13vw;
 }
 .search-txt{
     border:none;
