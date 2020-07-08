@@ -128,3 +128,7 @@ body{
     color: white;
     font-family: 'Roboto Condensed';font-size: 1.7vw;
 }
+.disabledDiv {
+    pointer-events: none;
+    opacity: 0.4;
+}

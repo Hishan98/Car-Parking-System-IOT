@@ -6,9 +6,12 @@ if(isset($_POST['username'])){
     
     $uname=$_POST['username'];
     $password=$_POST['pass'];
+
+    //decrypt password
+    $pass_decrypted=md5($password);
     $error="You Have Entered Incorrect Username or Password";
     
-    $sql="select * from users where username='".$uname."'AND password='".$password."' limit 1";
+    $sql="select * from users where username='".$uname."'AND password='".$pass_decrypted."' limit 1";
     
     $result=mysqli_query($con,$sql);
     $row = $result->fetch_assoc();

@@ -416,7 +416,7 @@ i{
   padding-left: 3vw;
 }
 .search_area button{
-  width : 120px;
+  min-width : 120px;
   height : 60px;
   border: 0px;
   border-radius: 20px;
@@ -424,6 +424,7 @@ i{
   color: white;
   font-family: 'Roboto Condensed';
   font-size: 20px;
+  padding-left: 10px;
 }
 button i {
   left: -10px;
@@ -434,13 +435,10 @@ button i {
   top: 45px;
   right: 60px;
 }
-.search_area button{
-  padding-left: 10px;
-}
 .date_container{
   position: absolute;
   top: 3px;
-  right: 320px;
+  right: 305px;
   width : 200px;
   height : 60px;
   border-radius: 20px;
@@ -457,10 +455,15 @@ button i {
 
 #search_btn{
   position: absolute;
-  right: 130px;
-  min-width: 160px;
+  right: 160px;
+  min-width: 130px;
 }
-
+#download_btn{
+  position: absolute;
+  right: 0px;
+  min-width: 150px;
+  background-color: #F7505A;
+}
 .Main-container{
   display: block;
   width: 78%;
@@ -533,4 +536,11 @@ padding-left: 18px;
 }
 #container-Guards{
   background-color: #F7505A;
+}
+.report-hedding{
+  min-width: 500px;
+  position: absolute;
+  top: 15%;
+  right: 36vw;
+  font-size: 4.2vw;
 }

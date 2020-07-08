@@ -6,6 +6,13 @@ if (!isset($_SESSION['type'])) {
 } else if ($_SESSION['type'] != 'guard') {
     header('Location: ../index.php');
 } else {
+    if($_SESSION['usr_status']=='Employee'){
+        echo "<script type='text/javascript'>alert('Employee');</script>";
+    }
+    else{
+        echo "<script type='text/javascript'>sah();</script>";
+
+    }
 }
 if (!isset($_SESSION['vnumber'])) {
     header('Location: ../in_system/Home.php');
@@ -24,7 +31,7 @@ if (!isset($_SESSION['vnumber'])) {
         <form action="../DBconnections/garagedb.php" method="POST">    
                 <div id="base-container">
                     <div id="left-container">  
-                        <div class="managerslots" data-value="1" id="slot01">
+                        <div class="slots" data-value="1" id="slot01">
                             <p id="txt">
                                 Slot 01
                                 <img src="../images/car top.png" class="img_size_upper" id="slot01-img">
@@ -52,14 +59,14 @@ if (!isset($_SESSION['vnumber'])) {
                             </p>
                         </div>
 
-                        <div class="managerslots" data-value="5" id="slot05">
+                        <div class="slots" data-value="5" id="slot05">
                             <p id="txt">
                                 Slot 05
                                 <img src="../images/car top.png" class="img_size_upper" id="slot05-img">
                             </p>
                         </div>
 
-                        <div class="managerslots" data-value="6" id="slot06">
+                        <div class="slots" data-value="6" id="slot06">
                             <p id="txt">
                                 Slot 06
                                 <img src="../images/car top.png" class="img_size_lower" id="slot06-img">

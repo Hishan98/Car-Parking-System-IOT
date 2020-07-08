@@ -1,3 +1,14 @@
+<?php 
+	session_start();
+
+	if (!isset($_SESSION['type'])) {
+		header('Location: ../index.php');
+	} else if ($_SESSION['type'] != 'admin') {
+		header('Location: ../index.php');
+	} else {
+	}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,11 +38,14 @@
 <body>
 	<div class="navigation">
 		<button class="side_button" id="btn_home" onclick="Home_Function()"><i class="fa fa-home fa-lg" aria-hidden="true"></i>Home</button>
-		<button class="side_button" id="btn_guards" onclick="guard_Function()"><i class="fa fa-tasks fa-lg" aria-hidden="true"></i>Settings</butto>
-		<button class="side_button" id="btn_logout"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>Logout</button>
+		<button class="side_button" id="btn_guards" onclick="guard_Function()"><i class="fa fa-tasks fa-lg" aria-hidden="true"></i>Settings</button>
+		<form action="../DBconnections/logout.php" method="POST">
+			<button class="side_button" id="btn_logout"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>Logout</button>
+		</form>
 	</div>
 		<div class="container-table100" id="container-home" style="display: flex;"> 
 			<div class="search_area">
+			<h1 class="report-hedding">AIA Park</h1>
 				<form id="search_form" action="" method="POST">
 					<div class="date_container">
 						<input type="date" id="check_date" name="checkindate" placeholder="yyyy-mm-dd" value="" min="2020-01-01" max="2030-12-31">
@@ -40,11 +54,10 @@
 						Search
 					</button>
 				</form>
-				<form>
-					<button id="print_btn" type="submit" value="Submit"><i class="fa fa-print" aria-hidden="true"></i>Print</button>
+				<form action="../DBconnections/excelexport.php" method="POST">
+					<button id="download_btn" type="submit" value="Submit"><i class="fa fa-print" aria-hidden="true"></i>Download</button>
 				</form>
 			</div>
-
 			<div class="wrap-table100" id="All_table">
 				<div class="table100 ver1 m-b-1">
 					<div class="table100-head">
@@ -67,11 +80,14 @@
 							<tbody>
 								<?php 
 									include('../DBconnections/dbconfig.php');
-									$check_date = $_POST['checkindate'];
 
-									if($check_date!=NULL){	
+									if(isset($_POST['checkindate']) && $_POST['checkindate']!=NULL){
+										$check_date = $_POST['checkindate'];	
 										$sql="select * from report where parked_date='".$check_date."'";
 										$result=$con-> query($sql);
+										
+										//set session for Download button
+										$_SESSION["sql-query"] = $sql;
 									
 										if($result-> num_rows >0){
 											while($row = $result-> fetch_assoc()){
@@ -91,6 +107,10 @@
 									else{
 										$sql="select * from report";
 										$result=$con-> query($sql);
+
+										//set session for Download button
+										$_SESSION["sql-query"] = $sql;
+
 										if($result-> num_rows >0){
 											while($row = $result-> fetch_assoc()){
 												echo'

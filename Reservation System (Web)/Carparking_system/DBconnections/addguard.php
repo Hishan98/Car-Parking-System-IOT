@@ -7,8 +7,12 @@ if(isset($_POST['uname'])){
         $username=$_POST['uname'];
         $password=$_POST['password'];
     
+        //Password encryption
+        $pass_encrypted=md5($password);
+
+
         $sql="INSERT INTO users (username, password) 
-        VALUES ('".$username."','".$password."')";
+        VALUES ('".$username."','".$pass_encrypted."')";
     
         if ($con->query($sql) === TRUE) {
             echo "<script type='text/javascript'>alert('New record created successfully');</script>";

@@ -31,9 +31,24 @@ if (!isset($_SESSION['type'])) {
     </body>
     <?php
          if(isset($_POST['vnumber'])){
+
+            include('../DBconnections/dbconfig.php');
             $_SESSION['vnumber'] = $_POST['vnumber'];
-            header('Location: garage.php');
-            // echo "<script type='text/javascript'>alert('$vnum');</script>";
+            $vnumber=$_POST['vnumber'];
+
+            //Get status from database
+            $sql="select * from vip_vehicles where vehicle_num='".$vnumber."' limit 1";
+            $result=mysqli_query($con,$sql);
+            $row = $result->fetch_assoc();
+            $in_time = $row["in_time"];
+            if($result->num_rows > 0){
+                $_SESSION['usr_status']="Employee";
+                header('Location: garage.php');
+            }
+            else{
+                $_SESSION['usr_status']="Customer";
+                header('Location: garage.php');
+            }
          }
     ?>
 </html>
