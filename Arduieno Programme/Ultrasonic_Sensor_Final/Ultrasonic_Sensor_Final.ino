@@ -1,9 +1,6 @@
 #include <ESP8266WiFi.h>
 #include <FirebaseArduino.h>
 
-//#define WIFI_SSID "SLT_FIRE" // WiFi Name
-//#define WIFI_PASSWORD "dhk@1998" // WiFi Password
-
 #define WIFI_SSID "KK" // WiFi Name
 #define WIFI_PASSWORD "123456789" // WiFi Password
 
@@ -45,11 +42,11 @@ void setup() {
 }
 
 void loop() {
-  Water_system(trigPin,echoPin,duration,distance,available_range); // Check First Sensor Data and update Firebase database
-  Water_system(trigPinSe,echoPinSe,duration,distance,available_range); // Check Second Sensor Data and update Firebase database
+  Parking_system(trigPin,echoPin,duration,distance,available_range); // Check First Sensor Data and update Firebase database
+  Parking_system(trigPinSe,echoPinSe,duration,distance,available_range); // Check Second Sensor Data and update Firebase database
 }
 
-int Water_system(int trigPin,int echoPin,int distance,long duration, int available_range){
+int Parking_system(int trigPin,int echoPin,int distance,long duration, int available_range){
   
   // Clears the trigPin
   digitalWrite(trigPin, LOW);

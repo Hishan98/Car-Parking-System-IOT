@@ -6,13 +6,6 @@ if (!isset($_SESSION['type'])) {
 } else if ($_SESSION['type'] != 'guard') {
     header('Location: ../index.php');
 } else {
-    if($_SESSION['usr_status']=='Employee'){
-        echo "<script type='text/javascript'>alert('Employee');</script>";
-    }
-    else{
-        echo "<script type='text/javascript'>sah();</script>";
-
-    }
 }
 if (!isset($_SESSION['vnumber'])) {
     header('Location: ../in_system/Home.php');
@@ -31,7 +24,7 @@ if (!isset($_SESSION['vnumber'])) {
         <form action="../DBconnections/garagedb.php" method="POST">    
                 <div id="base-container">
                     <div id="left-container">  
-                        <div class="slots" data-value="1" id="slot01">
+                        <div class="managerslots" data-value="1" id="slot01">
                             <p id="txt">
                                 Slot 01
                                 <img src="../images/car top.png" class="img_size_upper" id="slot01-img">
@@ -59,14 +52,14 @@ if (!isset($_SESSION['vnumber'])) {
                             </p>
                         </div>
 
-                        <div class="slots" data-value="5" id="slot05">
+                        <div class="managerslots" data-value="5" id="slot05">
                             <p id="txt">
                                 Slot 05
                                 <img src="../images/car top.png" class="img_size_upper" id="slot05-img">
                             </p>
                         </div>
 
-                        <div class="slots" data-value="6" id="slot06">
+                        <div class="managerslots" data-value="6" id="slot06">
                             <p id="txt">
                                 Slot 06
                                 <img src="../images/car top.png" class="img_size_lower" id="slot06-img">
@@ -106,6 +99,22 @@ if (!isset($_SESSION['vnumber'])) {
                         <label id="slots-title">You are selected :</label></br>
                         <label id="slots-value">None</label>
                         <input type="hidden" id="txt-slots-value" name="txt-slots-value">
+                        <?php
+                            echo '
+                            <input type="hidden" id="txt-status-value" name="txt-status-value" value="'.$_SESSION['usr_status'].'">
+
+                            <input type="hidden" id="txt-slot-01" name="txt-slot-01" value="'.$_SESSION['usr_stat0'].'">
+                            <input type="hidden" id="txt-slot-02" name="txt-slot-02" value="'.$_SESSION['usr_stat1'].'">
+                            <input type="hidden" id="txt-slot-03" name="txt-slot-03" value="'.$_SESSION['usr_stat2'].'">
+                            <input type="hidden" id="txt-slot-04" name="txt-slot-04" value="'.$_SESSION['usr_stat3'].'">
+                            <input type="hidden" id="txt-slot-05" name="txt-slot-05" value="'.$_SESSION['usr_stat4'].'">
+                            <input type="hidden" id="txt-slot-06" name="txt-slot-06" value="'.$_SESSION['usr_stat5'].'">
+                            <input type="hidden" id="txt-slot-07" name="txt-slot-07" value="'.$_SESSION['usr_stat6'].'">
+                            <input type="hidden" id="txt-slot-08" name="txt-slot-08" value="'.$_SESSION['usr_stat7'].'">
+                            <input type="hidden" id="txt-slot-09" name="txt-slot-09" value="'.$_SESSION['usr_stat8'].'">
+                            <input type="hidden" id="txt-slot-10" name="txt-slot-10" value="'.$_SESSION['usr_stat9'].'">
+                            ';
+                        ?>
                         <button id="slots-btn" type = "submit" value = " Submit ">BOOK NOW</button>
                     </div>
                 </div>

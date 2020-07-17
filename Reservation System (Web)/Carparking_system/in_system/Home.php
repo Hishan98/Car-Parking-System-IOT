@@ -42,13 +42,42 @@ if (!isset($_SESSION['type'])) {
             $row = $result->fetch_assoc();
             $in_time = $row["in_time"];
             if($result->num_rows > 0){
-                $_SESSION['usr_status']="Employee";
-                header('Location: garage.php');
+                // $_SESSION['usr_status']="Employee";
+                // header('Location: garage.php');
             }
             else{
                 $_SESSION['usr_status']="Customer";
                 header('Location: garage.php');
             }
+
+            //Get unavalible Slots from database
+            $sql="select * from slots";
+            $result=mysqli_query($con,$sql);
+            $row = $result->fetch_assoc();
+            $result_count=0;
+
+            if($result->num_rows > 0){
+                while($result_count<10){
+
+                    $sql1 = "select * from slots ORDER BY slot_num ASC LIMIT  $result_count, 1";
+                    $result1=mysqli_query($con,$sql1);
+                    $rows = $result1->fetch_assoc();
+
+                    if($rows["invoice_num"]==NULL){
+                        $SlotNum="usr_stat".$result_count;
+                        $_SESSION[$SlotNum]="Not Booked";     
+                    }
+                    else{
+                        $SlotNum="usr_stat".$result_count;
+                        $_SESSION[$SlotNum]="Booked"; 
+                    }
+                    $result_count++;
+                }
+            }
+            else{
+                echo'error Occoured...';
+            }
+            $con->close();
          }
     ?>
 </html>

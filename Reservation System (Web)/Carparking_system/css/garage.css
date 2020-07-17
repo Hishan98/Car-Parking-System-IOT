@@ -96,6 +96,14 @@ body{
     border-color: white;
     background-color: #267DFF;
 }
+
+.deactive{
+    background-color: #A1A1A0;
+}
+.managerslots.selected{
+    border-color: white;
+    background-color: #267DFF;
+}
 #slots-hedding{
     position: relative;
     float: right;
