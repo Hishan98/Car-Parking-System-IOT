@@ -12,41 +12,98 @@ var usr_slot_09=document.getElementById("txt-slot-09").value;
 var usr_slot_10=document.getElementById("txt-slot-10").value;
 
 if(usr_status=="Customer"){
-    if(usr_slot_02=="Booked"){
 
-        $(document).ready(function(){
+    $('#base-container .slots').click(function(){
+        $(this).parent().find('.slots').removeClass('selected');
+        $(this).addClass('selected');
+
+        var val = $(this).attr('data-value');
+        document.getElementById('slots-value').innerHTML = "Slot Number "+val;
+        myFunction(val);
+    });
+
+    if(usr_slot_02=="Booked"){
+        $("#slot02").addClass("deactive");
+        $('div#slot02').click(function(){
+            warning();
+            $("#slot02").removeClass('selected');
             $("#slot02").addClass("deactive");
+
+            var val = "";
+            document.getElementById('slots-value').innerHTML = "None";
+            myFunction(val)
         });
     }
     if(usr_slot_03=="Booked"){
-        $(document).ready(function(){
+        $("#slot03").addClass("deactive");
+        $('div#slot03').click(function(){
+            warning();
+            $("#slot03").removeClass('selected');
             $("#slot03").addClass("deactive");
+
+            var val = "";
+            document.getElementById('slots-value').innerHTML = "None";
+            myFunction(val)
         });
     }
     if(usr_slot_04=="Booked"){
-        $(document).ready(function(){
+        $("#slot04").addClass("deactive");
+        $('div#slot04').click(function(){
+            warning();
+            $("#slot04").removeClass('selected');
             $("#slot04").addClass("deactive");
+
+            var val = "";
+            document.getElementById('slots-value').innerHTML = "None";
+            myFunction(val)
         });
     }
     if(usr_slot_07=="Booked"){
-        $(document).ready(function(){
+        $("#slot07").addClass("deactive");
+        $('div#slot07').click(function(){
+            warning();
+            $("#slot07").removeClass('selected');
             $("#slot07").addClass("deactive");
+
+            var val = "";
+            document.getElementById('slots-value').innerHTML = "None";
+            myFunction(val)
         });
     }
     if(usr_slot_08=="Booked"){
-
-        $(document).ready(function(){
+        $("#slot08").addClass("deactive");
+        $('div#slot08').click(function(){
+            warning();
+            $("#slot08").removeClass('selected');
             $("#slot08").addClass("deactive");
+
+            var val = "";
+            document.getElementById('slots-value').innerHTML = "None";
+            myFunction(val)
         });
     }
     if(usr_slot_09=="Booked"){
-        $(document).ready(function(){
+        $("#slot09").addClass("deactive");
+        $('div#slot09').click(function(){
+            warning();
+            $("#slot09").removeClass('selected');
             $("#slot09").addClass("deactive");
+
+            var val = "";
+            document.getElementById('slots-value').innerHTML = "None";
+            myFunction(val)
         });
     }
     if(usr_slot_10=="Booked"){
-        $(document).ready(function(){
+        $("#slot10").addClass("deactive");
+        $('div#slot10').click(function(){
+            warning();
+            $("#slot10").removeClass('selected');
             $("#slot10").addClass("deactive");
+
+            var val = "";
+            document.getElementById('slots-value').innerHTML = "None";
+            myFunction(val)
         });
     }
 
@@ -68,15 +125,46 @@ else{
     });
 
     if(usr_slot_01=="Booked"){
+        $("#slot01").addClass("deactive");
+        $('div#slot01').click(function(){
+            warning();
+            $("#slot01").removeClass('selected');
+            $("#slot01").addClass("deactive");
 
+            var val = "";
+            document.getElementById('slots-value').innerHTML = "None";
+            myFunction(val)
+        });
     }
     if(usr_slot_05=="Booked"){
+        $("#slot05").addClass("deactive");
+        $('div#slot05').click(function(){
+            warning();
+            $("#slot05").removeClass('selected');
+            $("#slot05").addClass("deactive");
 
+            var val = "";
+            document.getElementById('slots-value').innerHTML = "None";
+            myFunction(val)
+        });
     }
-    if(usr_slot_06=="Booked"){
+        if(usr_slot_06=="Booked"){
+        $("#slot06").addClass("deactive");
+        $('div#slot06').click(function(){
+            warning();
+            $("#slot06").removeClass('selected');
+            $("#slot06").addClass("deactive");
 
+            var val = "";
+            document.getElementById('slots-value').innerHTML = "None";
+            myFunction(val)
+        });
     }
 }
 function myFunction(value) {
     document.getElementById("txt-slots-value").value = value;
 }
+
+function warning() {
+    alert("Already Booked..");
+  }

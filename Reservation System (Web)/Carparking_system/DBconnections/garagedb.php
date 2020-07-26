@@ -24,6 +24,7 @@ if(isset($_POST['txt-slots-value'])){
      } else {
           echo "<script type='text/javascript'>alert('Sorry, cannot place your booking...');</script>";
           echo "Error: " . $sql . "<br>" . $con->error;
+          header('Location: ../in_system/garage.php');
      }
 
      //Get invoice number from report table
