@@ -106,6 +106,11 @@ if(usr_status=="Customer"){
             myFunction(val)
         });
     }
+    else{
+        $('div#slot10').click(function(){
+            disablewar();
+        });
+    }
 
     $(document).ready(function(){
         $(".managerslots").addClass("deactive");
@@ -168,3 +173,6 @@ function myFunction(value) {
 function warning() {
     alert("Already Booked..");
   }
+function disablewar(){
+    alert("This slot is reserved for customers with disability. Please proceed only if you match the criteria.");
+}

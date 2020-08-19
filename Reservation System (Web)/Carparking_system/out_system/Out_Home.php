@@ -1,12 +1,10 @@
 <?php
-// session_start();
-
-// if (!isset($_SESSION['type'])) {
-//     header('Location: ../index.php');
-// } else if ($_SESSION['type'] != 'guard') {
-//     header('Location: ../index.php');
-// } else {
-// }
+session_start();
+if (isset($_SESSION['checkout_error'])) {
+    $error=$_SESSION['checkout_error'];
+    echo "<script type='text/javascript'>alert('$error');</script>";
+    unset($_SESSION['checkout_error']);
+} 
 ?>
 <html>
     <head>

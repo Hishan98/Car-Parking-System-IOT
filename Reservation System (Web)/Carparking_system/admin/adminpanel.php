@@ -8,6 +8,12 @@
 	} else {
 	}
 
+	if (isset($_SESSION['remove_error'])) {
+		$error=$_SESSION['remove_error'];
+		echo "<script type='text/javascript'>alert('$error');</script>";
+		unset($_SESSION['remove_error']);
+	} 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -264,6 +270,10 @@
 				<div class="modal-body">
 					<form action="../DBconnections/addguard.php" method="POST">
 						<div class="form-group">
+							<label for="exampleInputPassword1">Employee ID</label>
+							<input type="text" class="form-control" id="formGroupExampleInput2" name="emp_id" placeholder="11236">
+						</div>
+						<div class="form-group">
 							<label for="exampleInputPassword1">Username</label>
 							<input type="text" class="form-control" id="formGroupExampleInput2" name="uname" placeholder="Manuja">
 						</div>
@@ -296,6 +306,10 @@
 							<label for="exampleInputEmail1">Employee ID</label>
 							<input type="text" class="form-control" id="formGroupExampleInput" name="employeeID" placeholder="Eg: E12345">
 						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Vehicle Number (only for vehicle removel)</label>
+							<input type="text" class="form-control" id="formGroupExampleInput" name="vehicleNum" placeholder="Eg: caw2234">
+						</div>
 						<button type="submit" class="btn btn-primary">Remove</button>
 					</form>
 				</div>
@@ -306,7 +320,26 @@
 		</div>
 	</div>
 
-
+	<!-- Modal -->
+	<div class="modal fade" id="errormodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					...
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
 <!--===============================================================================================-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>	

@@ -3,9 +3,6 @@ session_start();
 
 include('dbconfig.php');
 if(isset($_POST['employeeID'])){
-
-        //create a sesion
-        // $_SESSION['txt-slots-value']= $_POST['txt-slots-value'];
     
         //define data
 
@@ -16,11 +13,11 @@ if(isset($_POST['employeeID'])){
         VALUES ('".$employeeID."','".$vnumber."')";
     
         if ($con->query($sql) === TRUE) {
-            echo "<script type='text/javascript'>alert('New record created successfully');</script>";
+            $_SESSION['remove_error']="New record created successfully";
             header('Location: ../admin/adminpanel.php');
         } else {
-            echo "<script type='text/javascript'>alert('Sorry, cannot place your booking...');</script>";
-            echo "Error: " . $sql . "<br>" . $con->error;
+            $_SESSION['remove_error']="Sorry, cannot Add VIP vehicle...";
+            header('Location: ../admin/adminpanel.php');
         }
         $con->close();
 }

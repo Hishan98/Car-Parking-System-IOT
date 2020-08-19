@@ -24,7 +24,7 @@ if(isset($_POST['username'])){
                header("Location: ../admin/adminpanel.php");
           }
           else{
-               header("Location: ../in_system/Home.php");
+               header("Location: ../checkin_out.php");
           }
     }
     else{
@@ -34,4 +34,3 @@ if(isset($_POST['username'])){
     $con->close();
         
 }
-?>

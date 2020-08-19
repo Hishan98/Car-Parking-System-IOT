@@ -28,6 +28,7 @@ if (!isset($_SESSION['type'])) {
                 </form>
             </div>
         </div>
+
     </body>
     <?php
          if(isset($_POST['vnumber'])){
@@ -36,18 +37,28 @@ if (!isset($_SESSION['type'])) {
             $_SESSION['vnumber'] = $_POST['vnumber'];
             $vnumber=$_POST['vnumber'];
 
-            //Get status from database
-            $sql="select * from vip_vehicles where vehicle_num='".$vnumber."' limit 1";
-            $result=mysqli_query($con,$sql);
-            $row = $result->fetch_assoc();
-            // $in_time = $row["in_time"];
-            if($result->num_rows > 0){
-                $_SESSION['usr_status']="Employee";
-                header('Location: garage.php');
+            //Check Already In the carpark
+            $sqlq="select * from report where vehicle_num='".$vnumber."' AND out_time IS NULL";
+            $resultq=mysqli_query($con,$sqlq);
+            $rowq = $resultq->fetch_assoc();
+ 
+            if($resultq->num_rows > 0){
+                echo "<script type='text/javascript'>alert('Your Vehicle is already at the car park');</script>";    
             }
             else{
-                $_SESSION['usr_status']="Customer";
-                header('Location: garage.php');
+                //Get status from database
+                $sql="select * from vip_vehicles where vehicle_num='".$vnumber."' limit 1";
+                $result=mysqli_query($con,$sql);
+                $row = $result->fetch_assoc();
+    
+                if($result->num_rows > 0){
+                    $_SESSION['usr_status']="Employee";
+                    header('Location: garage.php');
+                }
+                else{
+                    $_SESSION['usr_status']="Customer";
+                    header('Location: garage.php');
+                }
             }
 
             //Get unavalible Slots from database

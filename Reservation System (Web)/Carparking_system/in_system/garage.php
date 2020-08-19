@@ -96,7 +96,7 @@ if (!isset($_SESSION['vnumber'])) {
                     </div>
                     <div id="right-container">
                         <label id="slots-hedding">Select Your Slot</label>
-                        <label id="slots-title">You are selected :</label></br>
+                        <label id="slots-title">You have selected :</label></br>
                         <label id="slots-value">None</label>
                         <input type="hidden" id="txt-slots-value" name="txt-slots-value">
                         <?php
